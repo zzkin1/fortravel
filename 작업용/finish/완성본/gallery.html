@@ -1,0 +1,291 @@
+	<!DOCTYPE html>
+	<html lang="en" >
+	<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<link rel="stylesheet" href="./gallery.css">
+	<link href="https://fonts.googleapis.com/css?family=Cookie|Playfair+Display:400,00" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script><script  src="./script.js"></script>
+	<script>
+	//스크롤로 메뉴위치확인
+$(document).ready(function() {
+	var jbOffset = $ ('nav').offset();
+	$(window).scroll(function(){
+		if($(document).scrollTop()>jbOffset.top) {
+			$('nav').addClass('jbFixed');
+			}
+			else{
+				$('nav').removeClass('jbFixed');
+				}
+
+				});
+});
+	</script>
+	</head>
+	<body>
+	<header>
+	<!--메인로고 -->
+	<div id="logo"></div>
+
+	<!-- 비행기로고 -->
+	<div class="plane">
+	<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="-332 285.2 126.6 43.8"><style>.st0{fill:none;stroke:#C29924;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st1{fill:#E2C02D;stroke:#C29924;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><path class="st0 path" stroke-dasharray="12" stroke-dashoffset="12" d="M-209.5,306v12"/><path class="st0 path" stroke-dasharray="12" stroke-dashoffset="12" d="M-209.5,305.9v-12"/><path class="st1" d="M-215.4 299.4c4.9 0 8.8 2.9 8.8 6.6 0 3.7-3.9 6.6-8.8 6.6"/><path class="st0" d="M-292.9 308.5h-2.4c-5.8 0-10.5-5.7-10.5-11.5v-4.1c0-3.6 3-6.6 6.6-6.6 3.4 0 6.2 2.8 6.2 6.2v16h.1z"/><path class="st1" d="M-292.9 292.6l7.8 6.6"/><path class="st0" d="M-224.7 318.3h-37.5s2.3-4.9 18.6-4.9 18.9 4.9 18.9 4.9zm0-26.6h-37.5s2.3-4.9 18.6-4.9 18.9 4.9 18.9 4.9z"/><path class="st0" d="M-256 314.4l-36.8-5.9.3-9.1h43.8v1.2c.3 3.7 3.5 6.7 7.3 6.7s6.9-2.8 7.3-6.5v-1.4h18.8v13.3l-14.3 2.5M-252.4 313.8v-22.1"/><path class="st0" d="M-234.6 313.8v-22.1l-17.6 22.2"/><circle class="st0" cx="-218.9" cy="323.8" r="4"/><line class="st0 smoke smoke1" x1="-320.1" y1="302.7" x2="-326.5" y2="302.7"/><path class="st0" d="M-215.8,313.4l-3.1,10.4l-3.6-9.4 M-292.6,299.4h-17.6 M-224.7,299.4v-7.7l-5.7,7.7"/><line class="st0 smoke smoke2" x1="-324.4" y1="297.4" x2="-330.8" y2="297.4"/><line class="st0 smoke smoke3" x1="-317.7" y1="292.2" x2="-324.1" y2="292.2"/><line class="st0 smoke smoke4" x1="-312.5" y1="295.9" x2="-318.9" y2="295.9" /></svg>
+	</div>
+
+	<!-- 검색창 -->
+	<div id="wrap">
+	<form action="" autocomplete="on">
+	<input id="search" name="search" type="text" placeholder="What're we looking for?"><input id="search_submit" value="Rechercher" type="submit">
+	</form>
+	</div>
+
+<!-- 메뉴바&로그인 -->
+	<nav>
+	<div class="topMenu">
+	<ul class="menu01">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">항공조회</a></li>
+		<li><a href="#">여행정보</a>
+			<ul class="dept01">
+				<li id="nop"><a href="#">도시</a></li>
+				<li id="nop"><a href="#">테마</a></li>
+				<li id="nop"><a href="#">명소</a></li>
+				<li id="nop"><a href="#">맛집</a></li>
+			</ul>
+		<li><a href="#">커뮤니티</a>
+			<ul class="dept01">
+				<li id="nop"><a href="#">함께해요</a></li>
+				<li id="nop"><a href="#">여행후기</a></li>
+				<li id="nop"><a href="#">정보&팁</a></li>
+			</ul>
+		</li>
+		<li><a href="#">마이페이지</a>
+	        <ul class="dept01">
+				<li id="nop"><a href="#">회원정보수정</a></li>
+				<li id="nop"><a href="#">예약확인&취소</a></li>
+				<li id="nop"><a href="#">게시글관리</a></li>
+				<li id="nop"><a href="#">스크랩</a></li>
+				<li id="nop"><a href="#">Q&A</a></li>
+			</ul>		
+	</ul>
+	<!-- user메뉴 -->
+	<ul id="user">
+	<li class="open-button" onclick="openForm()">로그인</li>
+	<li>회원가입</li>
+	</ul>
+	</div>
+	</nav>
+	</header>
+
+	<section>
+	<main class='main'>
+  
+  <section class='section section--one' id='section1'>
+    <div class='section__bg'></div>
+    <button class='button--close'>x</button>
+    <div class='section__content'>
+      <div class='section__bg image'></div>
+      <h2 class="section__title">Cras ornare tristique elit</h2>
+      <div class="section__content__body">
+      <p>Curabitur quis odio neque. Nulla ac ipsum felis. Suspendisse arcu libero, consequat id varius sed, suscipit non ipsum. Vivamus nec feugiat turpis, sed luctus metus. Vivamus vel libero id augue tempus aliquet. Vestibulum facilisis ante quis consectetur commodo. Praesent molestie odio vel varius rutrum. Proin eget magna a sapien accumsan bibendum et ac augue. Vivamus sed justo a nulla posuere eleifend. Duis ut vulputate risus. Proin mauris arcu, malesuada at dictum ut, pharetra sit amet orci. Donec rutrum porta libero nec aliquet. Vivamus dignissim tortor ut ipsum tempor, in fermentum ipsum rhoncus.</p>
+       </div> 
+    </div>
+  </section>
+  <section class='section section--two is-active' id='section2'>
+    <div class='section__bg'></div>
+    <button class='button--close'>x</button>
+    <div class='section__content'>
+      <div class='section__bg image'></div>
+      <h2 class="section__title">Ut aliquam sollicitudin leo</h2>
+      <div class="section__content__body">
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum molestie nisl. Aliquam suscipit sed ante a egestas. Suspendisse mi elit, porttitor id suscipit id, convallis ac massa. Nulla tincidunt, felis in tincidunt fermentum, ligula risus aliquet dolor, id vestibulum augue augue eu lacus. Mauris ornare ante erat, id pretium nisl faucibus vel. Praesent pellentesque dolor at porta consectetur. Pellentesque eget lacus scelerisque mauris volutpat maximus vel auctor nibh. Suspendisse quis lacus at orci ornare varius. Pellentesque tincidunt id ex sed fermentum. Cras eget urna ac arcu auctor tempor. Cras malesuada convallis faucibus.</p>
+       </div> 
+    </div>
+  </section>
+  <section class='section section--three' id='section3'>
+    <div class='section__bg'></div>
+    <button class='button--close'>x</button>
+    <div class='section__content'>
+      <div class='section__bg image'></div>
+      <h2 class="section__title">Cras iaculis ultricies nulla</h2>
+      <div class="section__content__body">
+      <p>Cras nec ante in augue bibendum bibendum. Praesent pellentesque leo porttitor elementum gravida. Phasellus felis sem, interdum eu metus tempus, lacinia venenatis ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus facilisis, ante sed efficitur porta, leo odio tempor erat, ac rhoncus sapien orci a tortor. Maecenas porttitor, mauris in vestibulum pharetra, tellus urna finibus lorem, id condimentum mi magna id erat. Nunc laoreet, neque nec varius aliquet, enim tortor facilisis magna, at dignissim nibh mi eu massa. Aliquam ultricies purus in lacus egestas, sit amet maximus lacus luctus. Pellentesque a nulla sed massa lacinia condimentum. Praesent sagittis venenatis nisi sit amet consequat. In venenatis purus risus, a tempus ligula euismod et. Fusce eu molestie quam, at vehicula massa. Praesent commodo risus sit amet nisi lacinia sagittis.</p>
+       </div> 
+    </div>
+  </section>
+  <section class='section section--four' id='section4'>
+    <div class='section__bg'></div>
+    <button class='button--close'>x</button>
+    <div class='section__content'>
+      <div class='section__bg image'></div>
+      <h2 class="section__title">Vivamus molestie gravida turpis</h2>
+      <div class="section__content__body">
+      <p>Etiam nibh felis, malesuada nec nisi nec, luctus mattis risus. Vivamus id ipsum lacus. Morbi sed ligula id quam faucibus maximus vel nec ante. Donec sem risus, interdum a massa bibendum, accumsan dapibus felis. Vivamus non sem ullamcorper, pellentesque libero ut, maximus felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec volutpat tincidunt dapibus. Sed et nunc cursus, pulvinar urna a, consectetur erat. Ut dignissim felis lobortis, consequat nibh ac, sagittis sem. Quisque id sodales tortor. Praesent lobortis elit ante, id bibendum lorem ornare eu. Duis quis mi sed velit interdum maximus. Nam venenatis libero quis arcu sagittis efficitur. Donec euismod mauris nec lacus ultrices sollicitudin. Suspendisse egestas purus vel scelerisque luctus.</p>
+       </div> 
+    </div>
+  </section>
+  
+</main>
+	<!-- 나라선택메뉴 -->
+<div class="container">
+  <div class="tab-section1">
+            <input id="section1" type="radio" name="tab" checked="checked" />
+            <label for="section1">아시아</label>
+            <input id="section2" type="radio" name="tab" />
+            <label for="section2">동남아</label>
+            <input id="section3" type="radio" name="tab" />
+            <label for="section3">유럽</label>
+			 <input id="section4" type="radio" name="tab" />
+            <label for="section4">미주</label>
+			 <input id="section5" type="radio" name="tab" />
+			 <label for="section5">남태평양</label>
+
+            <div id="sec1" class="tab2-content">
+                <p>
+        <ul id="sub-menu">
+        <li id="list2"><a href="#"><img id="flag" src="img/flag_HKG.gif" width="40" height="25">홍콩</a></li>
+        <li id="list2"><a href="#"><img id="flag" src="img/flag_MFM.gif" width="40" height="25">마카오</a></li>
+        <li id="list2"><a href="#"><img id="flag" src="img/flag_OSA.gif" width="40" height="25">오사카</a></li>
+        <li id="list2"><a href="#"><img id="flag" src="img/flag_OSA.gif" width="40" height="25">도쿄</a></li>
+		<li id="list2"><a href="#"><img id="flag" src="img/flag_TPE.gif" width="40" height="25">타이베이</a></li>
+		<li id="list2"><a href="#" style="position:relative; left:-27px;"><img id="flag" src="img/flag_TPE.gif" width="40" height="25" >가오슝</a></li>
+		<li id="list2"><a href="#" style="position:relative; left:-27px;"><img id="flag" src="img/flag_BJS.gif" width="40" height="25">상하이</a></li>
+		<li id="list2"><a href="#" style="position:relative; left:-27px;"><img id="flag" src="img/flag_BJS.gif" width="40" height="25">칭다오</a></li>	
+       </ul>
+                </p>
+            </div>
+            <div id="sec2" class="tab2-content">
+                <p>
+                    <ul id="sub-menu">
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_SIN.gif" width="40" height="25">싱가폴</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_LA1.gif" width="40" height="25">라오스</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_BKK.gif" width="40" height="25">푸켓</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_BKK.gif" width="40" height="25">방콕</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_DAD.gif" width="40" height="25">나트랑</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_DAD.gif" width="40" height="25">호치민</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_DAD.gif" width="40" height="25">다낭</a></li>
+		<li id="list2"><a href="#"><img id="flag"  src="img/flag_CEB.gif" width="40" height="25">세부</a></li>
+		<li id="list2"><a href="#"><img id="flag"  src="img/flag_CEB.gif" width="40" height="25">보라카이</a></li>
+        <li id="list2"><a href="#" style="position:relative; left:-13px;"><img id="flag"  src="img/flag_BKI.gif" width="40" height="25">코타키나발루</a></li>
+		</ul>
+                </p>
+            </div>
+            <div id="sec3" class="tab2-content">
+                <p>
+        <ul id="sub-menu">
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_PAR.gif" width="40" height="25">파리</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_ROM.gif" width="40" height="25">로마</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_LON.gif" width="40" height="25">런던</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_BCN.gif" width="40" height="25">바르셀로나</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_IST.gif" width="40" height="25">이스탄불</a></li>
+		<li id="list2"><a href="#" style="position:relative; left:-27px;"><img id="flag"  src="img\flag_VVO.gif" width="40" height="25">블라디보스톡</a></li>		
+        </ul>
+		</p>
+				</div>
+			<div id="sec4" class="tab2-content">
+                <p>
+         <ul id="sub-menu">
+         <li id="list2"><a href="#"><img id="flag" src="img/flag_Z01.gif" width="40" height="25">뉴욕</a></li>
+         <li id="list2"><a href="#"><img id="flag" src="img/flag_Z01.gif" width="40" height="25">하와이</a></li>
+         </ul>     
+	           </p>
+            </div>
+			<div id="sec5" class="tab2-content">
+                <p>
+                    <ul id="sub-menu">
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_Z01.gif" width="40" height="25">괌</a></li>
+        <li id="list2"><a href="#"><img id="flag"  src="img/flag_SYD.gif" width="40" height="30">시드니</a></li>
+      </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+<!-- 	게시판 -->
+	<div class="gallerybox">
+<div class="image-container">
+  <div class="tile" style="background-image: url('https://farm8.staticflickr.com/7564/16097104758_e60521f7fa_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm6.staticflickr.com/5601/15525286916_e9eb522c3e_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm4.staticflickr.com/3953/15412192487_0a2190efeb_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm9.staticflickr.com/8637/15817159220_08d1ded60e_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm8.staticflickr.com/7440/16439540741_ba50bb5dfd_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm6.staticflickr.com/5601/15240299739_2976bb5e0e_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm9.staticflickr.com/8376/8428761049_04f6cc8eb4_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm6.staticflickr.com/5539/11996224086_9d58ebb4e5_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm6.staticflickr.com/5327/8935388044_dc78e1c62a_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm4.staticflickr.com/3769/13058208624_fd838c9843_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm4.staticflickr.com/3929/15223824487_015159c208_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div>
+  
+  <div class="tile" style="background-image: url('https://farm6.staticflickr.com/5601/15240302089_fa36e2694b_b.jpg');">
+    <div class="image-title"><h1>Image Title</h1>
+      Content text goes here. Placeholder.
+    </div>
+   </div> 
+   
+   </div>
+  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+	</section>
+	</body>
+	</html>

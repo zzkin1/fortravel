@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <h1>HTML 태그 이름을 이용한 선택</h1>
+ 
+  <ul>
+  <li class="odd">첫 번째 아이템이에요!</li>
+  <li>두 번째 아이템이에요!</li>
+  <li class="odd">세 번째 아이템이에요!</li>
+  <li>네 번째 아이템이에요!</li>
+  <li class="odd">다섯 번째 아이템이에요!</li>
+ </ul>
+ 
+ <script>
+ var selectedItem=document.getElementsByClassName("odd");
+ for(var i=0; i<selectedItem.length; i++){
+	 selectedItem.item(i).style.color="red";
+	 }
+ </script>
+ </body>
+</html>

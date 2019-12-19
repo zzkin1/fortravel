@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <style>
+.cnj_time {border-style:solid;border-width:1;width:210;font-size: 9pt;border-color:#ffde52;color:#D9AD00;padding:2}
+</style>
+<script language="javascript"> 
+ 
+
+ function cnj_time() {
+
+var f = document.cnjform;
+
+cnj_today = new Date();
+cnj_year = cnj_today.getYear();
+cnj_month = cnj_today.getMonth();
+cnj_month = cnj_month + 1;
+cnj_day = cnj_today.getDate();
+cnj_hour = cnj_today.getHours();
+cnj_minute = cnj_today.getMinutes();
+cnj_second = cnj_today.getSeconds();
+
+// 참고 ((cnj_month<10)?"0":"")+cnj_month // 참고로 월/일/시간/분/초 에서 10보다 적을때 0을 붙여주는 부분
+
+var cnj_time1=((cnj_hour>12)?cnj_hour -12:cnj_hour)+((cnj_minute<10)?"0":":")+cnj_minute+((cnj_second<10)?":0":":")+cnj_second
+var cnj_time2=(cnj_hour>=12)?" PM ":" AM "
+var cnj_time3=cnj_year + "년" + ((cnj_month<10)?"0":"")+cnj_month+ "월" + ((cnj_day<10)?"0":"")+cnj_day+ "일";
+
+f.korea.value= cnj_time3 + cnj_time2 + cnj_time1;
+
+setTimeout("cnj_time()", 1000);
+}
+
+function city_time() {
+
+var f = document.cnjform;
+
+city_today = new Date();
+city_year = city_today.getYear();
+city_month = city_today.getMonth();
+city_month = city_month + 1;
+city_day = city_today.getDate();
+city_hours = city_today.getHours();
+city_minutes = city_today.getMinutes();
+city_seconds = city_today.getSeconds();
+
+zone = f.cityname.options[f.cityname.selectedIndex].value; // 그리니치 시간대 셀렉트 값
+city_zone = f.cityname.options[f.cityname.selectedIndex].text // 각 지역 도시명 텍스트
+city_hours = parseInt(city_hours) + parseInt(zone);
+
+if (city_hours < 0)
+{
+city_hours = city_hours + 24;
+city_day = city_day - 1;
+}
+
+if (city_hours > 23)
+{
+city_hours = city_hours - 24;
+city_day = city_day + 1;
+}
+
+// 참고 ((city_month<10)?"0":"")+cnj_month // 참고로 월/일/시간/분/초 에서 10보다 적을때 0을 붙여주는 부분
+
+var city_time1=((city_hours>12)?city_hours -12:city_hours)+((city_minutes<10)?":0":":")+city_minutes+((city_seconds<10)?":0":":")+city_seconds
+var city_time2=(city_hours>=12)?" PM ":" AM "
+var city_time3=city_year + "년" + ((city_month<10)?"0":"")+city_month+ "월" + ((city_day<10)?"0":"")+city_day+ "일";
+
+f.city.value= city_time3 + city_time2 + city_time1; // 그리니치 시간대 및 도시면 출력 설정 부분
+f.city_name.value=  city_zone; // 그리니치 시간대 및 도시면 출력
+setTimeout("city_time()", 1000);
+
+}
+
+window.onload=cnj_time
+
+</script>
+
+<form name="cnjform">
+<center>
+<br> <br>
+</center>
+
+<table align="center">
+
+<tr>
+<td height="25" align="right"><font color="#D9AD00" size="2">현재 한국 시간</font> :</td>
+<td height="25"><input type="text" name="korea" readonly class="cnj_time">
+</td>
+</tr>
+
+<tr>
+<td height="25" align="right" rowspan="2"><font color="#D9AD00" size="2">다른 도시 시간</font> :
+</td>
+<td><input type="text" name="city" value="도시명 선택" readonly class="cnj_time">
+</td>
+</tr>
+
+<tr>
+<td>
+<input type="text" name="city_name" value="도시명" readonly class="cnj_time"></td>
+</tr>
+
+<td height="25" align=right>
+<font color="#D9AD00" size="2">다른 도시명 선택 </font>:
+
+
+</td>
+<td height="25">
+<select name="cityname" onChange="city_time();" class="cnj_time">
+
+<!-- 추가시
+<option value="그리니치 시간차">도시명</option>
+-->
+<option value="0" selected>도시, 지역 선택</option>
+<option value="-19">앵커리지[Anchorage]</option>
+<option value="-7">애선스[Athens]</option>
+<option value="-14">애틀랜타[Atlanta]</option>
+<option value="3">오클랜드[Auckland]</option>
+<option value="-6">바그다드[Baghdad]</option>
+<option value="-2">방콕 [Bangkok]</option>
+<option value="-1">베이징[Beijing]</option>
+<option value="-8">베를린[Berlin]</option>
+<option value="-14">보고타</option>
+<option value="1">브리즈번[ Brisbane ]</option>
+<option value="-12">브리즈번[Brisbane]</option>
+<option value="-7">카이로[Cairo]</option>
+<option value="-13">가르가스(Carcas)</option>
+<option value="-9">카사블랑카[Casablanca]</option>
+<option value="-16">시카고[Chicago]</option>
+<option value="-16">덴버[Denver]</option>
+<option value="-3">다카 [Dhaka]</option>
+<option value="-9">더블린[Dublin]</option>
+<option value="-16">에드먼턴[Edmonton]</option>
+<option value="-8">제네바[Geneva]</option>
+<option value="1">괌섬[Guam I.]</option>
+<option value="-7">헬싱키[Helsinki]</option>
+<option value="-2">호치민[Hochiminh]</option>
+<option value="-19">호놀룰루[Honolulu]</option>
+<option value="-1">홍콩 [HongKong]</option>
+<option value="-2">자카르타[Jakarta]</option>
+<option value="-7">예루살렘[Jerusalem]</option>
+<option value="-7">요하네스버그[Johannesbug]</option>
+<option value="-6">카잔[Kazan]</option>
+<option value="-6">쿠웨이트[Kuwait]</option>
+<option value="-17">로스앤젤레스[Los Angeles ].</option>
+<option value="-9">리스본[Lisbon]</option>
+<option value="-9">런던[London]</option>
+<option value="-8">마드리드[Madrid]</option>
+<option value="-1">마닐라[Manila]</option>
+<option value="-5">모리셔스[Mauritius]</option>
+<option value="1">멜버른[Melbourne]</option>
+<option value="-14">몬트리올[Montreal]</option>
+<option value="-15">멕시코시티[Mexico City]</option>
+<option value="-15">마이애미[Miami]</option>
+<option value="-6">모스크바파[Moscow]</option>
+<option value="-6">나이로비[Nairobi]</option>
+<option value="-14">뉴욕[NewYork]</option>
+<option value="-8">파리[Paris]</option>
+<option value="-1">퍼스[Perth]</option>
+<option value="-16">피닉스[Phoenix]</option>
+<option value="-12">리우데자네이루[Rio de Janeiro]</option>
+<option value="-9">로마[Rome]</option>
+<option value="-20">사모아[Samoa]</option>
+<option value="-17">샌프란시스코[San Francisco]</option>
+<option value="-12">상파울로[Sao Paulo]</option>
+<option value="-13">산티아고[Santiago]</option>
+<option value="-17">시애틀[Seattle]</option>
+<option value="2">솔로몬[Solomon]</option>
+<option value="1">시드니[Sydeny]</option>
+<option value="-1">타이베이[Taipei]</option>
+<option value="0">도쿄[Tokyo]</option>
+<option value="-14">토론토[Toronto]</option>
+<option value="-17">밴쿠버[Vancouver]</option>
+<option value="3">웰링턴[Wellington]</option>
+</select>
+
+</td>
+</tr>
+
+</table>
+
+</form>
+[출처] 세계시간 소스. for javascript.|작성자 김상현
+
+
+ </body>
+</html>

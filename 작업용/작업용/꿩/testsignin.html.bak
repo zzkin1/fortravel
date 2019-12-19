@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+.menu01  span{
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+}
+
+.menu01 span :hover,
+.menu01 span:focus {
+	outline: none;
+}
+
+.color-6 {
+	background: #f19f0f;
+}
+
+/* 이펙트효과 */
+.focus{
+}
+
+:.focus:fter {/*아래에서올라오는효과*/
+	position: absolute;
+	top: 60%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: rgba(0,0,0,0.1);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+.focus:hover::after,
+.focus:focus::after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+nav{ 
+ position:absolute;
+ top:165px;
+ width:100%;
+ height:50px;
+ background:#FFFF6C;
+ z-index:9999;
+ }
+.topMenu {
+position:relative;
+top:15px;
+left:9%;
+width: 100%;
+margin-bottom:0px;
+text-align: center; 
+height: 40px;
+z-index:9999;
+}
+.topMenu:after {
+content: ""; 
+display: block;
+clear: both; 
+}
+.menu01>li {
+float: left; 
+width: 20%; 
+line-height: 10px;
+z-index:9999;
+}
+.menu01 span {
+font-size: 15px; 
+font-weight: bold;
+z-index:9999; 
+}            
+.dept01 {
+height:180px;
+display: none; 
+position:relative;
+top:20px;
+background:white;
+border-bottom: 1px solid #ccc;
+border-right: 1px solid #ccc;
+border-left: 1px solid #ccc;
+z-index:9999;
+font-size:11pt;
+opacity: 0.8;
+}            
+#nop {
+position:relative;
+z-index:200;
+float: none;
+margin:30px 0;
+}            
+.none:after {
+content: ""; 
+display: block; 
+clear: both; 
+}
+.jbFixed {
+position:fixed;
+top:0px;
+}
+  </style>
+ </head>
+ <body>
+   <nav>
+      <div class="topMenu">     
+			<ul class="menu01">
+                <li><span class="focus">항공</span>
+                    <ul class="dept01">
+                        <li id="nop">항공예약</li>
+                    </ul>
+                </li>
+                <li><span>여행정보</span>
+                    <ul class="dept01">
+                        <li id="nop">도시여행</li>
+                        <li id="nop">테마여행</li>
+                        <li id="nop">여행정보</li>
+                    </ul>
+                </li>
+                <li><span>커뮤니티</span>
+                    <ul class="dept01">
+                        <li id="nop">함께해요</li>
+                        <li id="nop">여행후기</li>
+                        <li id="nop">정보&팁</li>
+                        <li id="nop">Q&A</li>
+                    </ul>
+                </li>
+                <li><span>마이페이지</span>
+                    <ul class="dept01">
+                        <li id="nop">회원정보수정</li>
+                        <li id="nop">스크랩</li>
+						<li id="nop">게시글관리</li>
+                        <li id="nop">예약확인&취소</li>
+                    </ul>
+                </li>
+            </ul>
+			</div>
+      </nav>
+ </body>
+</html>

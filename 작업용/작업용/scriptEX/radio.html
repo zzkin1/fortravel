@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  function select1(form){
+	  for(var i=0; i<form.subject.length;i++)
+	  {
+		  if(form.subject[i].checked==true)
+		  {
+			  alert(form.subject[i].value+"종목을 선택했네요.")
+		  }
+	  }	  
+  }
+  </script>
+ </head>
+ <body>
+ 과목선택<p>
+ <form>
+ <input type="radio" name="subject" value="야구" checked>야구
+ <input type="radio" name="subject" value="축구">축구
+ <input type="radio" name="subject" value="배구">배구
+ <input type="radio" name="subject" value="농구">농구
+ <input type="button" value="확인" onClick="select1(this.form)">
+ </form>
+ </body>
+</html>

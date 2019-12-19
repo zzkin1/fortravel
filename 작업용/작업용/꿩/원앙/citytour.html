@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- CSS -->
+	<link rel="stylesheet" href="menufixcss/style.css" />
+	<!-- JS -->
+	<script src="menufixjs/jquery-1.11.3.min.js"></script>
+	<script src="menufixjs/script.js" type="text/javascript"></script>
+	<script src="menufixjs/weather.js" type="text/javascript"></script>
+
+
+  <style>
+ body{
+ width:100%;
+ height:1400px;
+ margin:0 0;
+ overflow-x: hidden;
+ }
+ header{
+ width:100%;
+ height:160px;
+ }
+ section{
+ height:2000px;
+ }
+ nav{
+ position:relative;
+ width:100%;
+ top:24px;
+ z-index:9999999;
+ }
+ .aside{
+ position:fixed;
+ left:3%;
+ top:70%;
+ font-size:15pt;
+ width:10%;
+ height:500px;
+ }
+ footer{
+ width:100%;
+  height:200px;
+  background:gray;
+ margin-top:70px;
+ }
+ ul{
+ margin:0 0;
+ padding:5px 0 0 0;
+ list-style-type:none;
+ } 
+ #surch{
+ position:relative;
+ left:25%;
+ top:26%;
+ }
+ #logo{
+ position:relative;
+ left:45%;
+ top:2%;
+ font-size:30pt;
+ }
+ #user{
+ position:relative;
+ font-size:10pt;
+ height:20px;
+ left:70%;
+ top:-33px;
+ }
+ #user p{
+ position:relative;
+ font-size:10pt;
+ left:125%;
+ top:-18px;
+ }
+ .mainbox{
+ background-image:url('img/08.jpg') ;
+ background-repeat:no-repeat;
+ background-size:100% 600px;
+ margin:0 0;
+ width:100%;
+ height:600px;
+ }
+.topMenu {
+position:relative;
+left:6%;
+width: 100%;
+margin-bottom:0px;
+text-align: center; 
+height: 40px;
+}
+.topMenu:after {
+content: ""; display: block;
+clear: both;
+}
+.menu01>li {
+z-index:6666;
+float: left;
+width: 20%; 
+line-height: 10px;
+}
+.menu01 span {
+font-size: 15px; 
+font-weight: bold;
+}            
+.dept01 {
+position:absolute;
+top:30px;
+width:20%;
+display: none; 
+padding: 20px 0; 
+border-bottom: 1px solid #ccc; 
+background:white;
+height:180px;
+}            
+#nop {
+float: none;
+margin:30px 0;
+}            
+.none:after {
+content: "";
+display: block;
+clear: both; 
+}
+.clockwich{
+ position:relative;
+ top:415px;
+ left:10%;
+ }
+ .clockcheck{
+ position:relative;
+ top:-150px;
+ left:-650px;
+ background-color:transparent; 
+ border:0 solid;
+ width:400px;
+ height:70px; 
+ line-height:150px;
+ color:white;
+ font-size:25px;
+ text-align:center;
+ }     
+ .weather{
+ position:relative;
+ top:195px;
+ left:1%;
+ width:400px;
+ color:white;
+ }
+ .cnj_time{
+ background-color:transparent; 
+ border:0 solid;
+ width:700px;
+ height:200px;
+ font-size:50pt;
+ text-align:center;
+ }
+ .cityname{
+ float:left;
+ position:relative;
+ top:30%;
+ left:30%;
+ width:700px;
+ height:200px;
+ }
+ .sel{
+ position:absolute;
+ top:770px;
+ left:83%;
+ height:40px;
+ font-size:12pt;
+ text-align:center;
+ }
+ #sub {
+height:130px;
+margin-top:-50px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top:500px;
+  left:0px;
+  background:white;
+  margin-left:85px;
+}
+#main-menu > li {
+  float: left;
+  position: relative;  
+}
+#sub-menu {
+  position: absolute;
+  top:65px;
+  left:-10px;
+  z-index: 1;
+    background:#D6F0FF;
+  opacity:0;
+  visibility: hidden;
+ transition:all 0.15s ease-in;
+}
+#sub-menu > li {
+ padding: 16px 28px;  
+}
+#city{position:absolute;
+left:60px;
+top:30px;
+margin-right:95px;
+font-size:12pt;
+}
+#sub-menu > li >  a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+}
+#main-menu > li:hover #sub-menu {
+  opacity: 1;
+  visibility: visible;
+  color:white;
+  margin-top:40px;
+  margin-left:-60px;
+  padding-left:80px;
+ padding-right:80px;
+}
+#sub-menu > li >  a:hover {
+  text-decoration:none;
+}
+#list1{margin-left:10px;}
+#citylist{
+float:left;
+font-size:10pt;
+margin-left:-65px;
+margin-right:-75px;
+}
+#mini{
+margin-left:-15px;
+margin-bottom:8px;
+}
+#flag{
+margin-bottom:11px;
+}
+#Aname{float:left;
+margin-left:-10px;}
+
+#citylist{
+margin-bottom:25px;}
+
+#list2{
+font-size:10pt;
+float:left;
+position:relative;
+left:10px;
+margin-top:20px;
+color:black;
+}
+
+.sample_image p  img {
+width:250px; height:320px; margin-left:12px;
+margin-top:50px; margin-bottom:50px;
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	-ms-transform:scale(1);	
+	-o-transform:scale(1);	
+	transform:scale(1);
+	-webkit-transition:.3s;
+	-moz-transition:.3s;
+	-ms-transition:.3s;
+	-o-transition:.3s;
+	transition:.3s;
+	 
+
+}
+.sample_image p:hover img {
+
+	-webkit-transform:scale(1.1);
+	-moz-transform:scale(1.1);
+	-ms-transform:scale(1.1);	
+	-o-transform:scale(1.1);
+	transform:scale(1.1);
+}
+.sample_image a  img {
+width:250px; height:320px; margin-left:12px;
+margin-top:50px; margin-bottom:50px;
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	-ms-transform:scale(1);	
+	-o-transform:scale(1);	
+	transform:scale(1);
+	-webkit-transition:.3s;
+	-moz-transition:.3s;
+	-ms-transition:.3s;
+	-o-transition:.3s;
+	transition:.3s; 
+
+}
+.sample_image a:hover img {
+
+	-webkit-transform:scale(1.1);
+	-moz-transform:scale(1.1);
+	-ms-transform:scale(1.1);	
+	-o-transform:scale(1.1);
+	transform:scale(1.1);
+}
+#london{float:left;}
+#pic1{float:left;
+margin-left:17px;}
+#pic2{float:left;
+margin-left:17px;}
+#pic3{float:left;
+margin-left:17px;}
+.banner1{
+position:relative;
+top:670px;
+left:-120px;
+width:1300px;
+}
+.banner2{
+position:relative;
+top:740px;
+left:-120px;
+width:1300px;
+}
+.bannername1{
+color:orange;
+font-size:20pt;
+position:absolute;
+top:650px;
+left:-15%;
+}
+.bannername2{
+color:orange;
+font-size:20pt;
+position:relative;
+top:700px;
+left:-15%;
+}
+.bannername3{
+color:orange;
+font-size:20pt;
+position:relative;
+top:770px;
+left:-15%;
+}
+ </style>
+
+<script language="javascript"> 
+//메뉴페이지 밀기
+ $(document).on('mouseover', '.topMenu span', function() {
+    $('.dept01').slideDown(300);
+});
+$(document).on('mouseover', 'div', function () {
+    if (!$(this).hasClass('topMenu')) {
+        $('.dept01').slideUp(300);
+    }
+});
+
+
+//시간
+
+function city_time() {
+
+var f = document.cnjform;
+
+city_today = new Date();
+city_year = city_today.getYear();
+city_month = city_today.getMonth();
+city_month = city_month + 1;
+city_day = city_today.getDate();
+city_hours = city_today.getHours();
+city_minutes = city_today.getMinutes();
+city_seconds = city_today.getSeconds();
+
+zone = f.cityname.options[f.cityname.selectedIndex].value;
+city_zone = f.cityname.options[f.cityname.selectedIndex].text
+city_hours = parseInt(city_hours) + parseInt(zone);
+
+if (city_hours < 0)
+{
+city_hours = city_hours + 24;
+city_day = city_day - 1;
+}
+
+if (city_hours > 23)
+{
+city_hours = city_hours - 24;
+city_day = city_day + 1;
+}
+var city_time1=((city_hours>12)?city_hours -12:city_hours)+((city_minutes<10)?":0":":")+city_minutes+((city_seconds<10)?":0":":")+city_seconds
+var city_time2=(city_hours>=12)?" PM ":" AM "
+var city_time3=((city_month<10)?"0":"")+city_month+ "월" + ((city_day<10)?"0":"")+city_day+ "일";
+
+f.city.value="현지시간 "+ city_time2 + city_time1 +"   "+city_time3;
+
+setTimeout("city_time()", 1000);
+
+var regex= /[^a-z]/gi;
+var regek= /[^ㄱ-힣]/gi;
+str = city_zone.replace(regex,"");
+ktr = city_zone.replace(regek,"");
+
+f.city_name.value=  ktr;
+
+ab.dosi.value=str;
+ab.clock.value=city_time2 + city_time1 +"   "+city_time3;
+
+}
+
+
+
+</script>
+</body>
+</script>
+
+ </head>
+ <body>
+ <header>
+ <div id="surch"><input type="text" name="surch" size="10" maxlength="100"></div>
+ <div id="logo">FOR TRAVEL</div>
+ <div id="user">로그인<p>회원가입<p></div>
+
+ <nav class="menu">
+ <div class="topMenu">
+            <ul class="menu01">
+                <li><span>항공</span>
+                    <ul class="dept01">
+                        <li id="nop">항공예약</li>
+                    </ul>
+                </li>
+                <li><span>여행정보</span>
+                    <ul class="dept01">
+                        <li id="nop">도시여행</li>
+                        <li id="nop">테마여행</li>
+                        <li id="nop">여행정보</li>
+                    </ul>
+                </li>
+                <li><span>커뮤니티</span>
+                    <ul class="dept01">
+                        <li id="nop">함께해요</li>
+                        <li id="nop">여행후기</li>
+                        <li id="nop">정보&팁</li>
+                        <li id="nop">Q&A</li>
+                    </ul>
+                </li>
+                <li><span>마이페이지</span>
+                    <ul class="dept01">
+                        <li id="nop">회원정보수정</li>
+                        <li id="nop">스크랩</li>
+                        <li id="nop">예약확인&취소</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+
+ </ul>
+ </nav>
+ </header>
+  <section>
+
+  <div class="aside">
+ <ul>
+ <li style="padding:15px 0 30px 0;" align="center">여행정보</li>
+ <li style="padding:0 0 30px 0;" align="center">테마여행</li>
+ <li align="center">도시여행</li>
+ </ul>
+ </div>
+
+  
+<div class="mainbox"><img>
+
+<form name="cnjform">
+<select class="sel" name="cityname" id="getWeatherForcast" onChange="city_time();">
+<option value="0" selected>도시, 지역 선택</option>
+<option value="-19">Anchorage</option>
+<option value="-7">Athens</option>
+<option value="-14">Atlanta</option>
+<option value="3">오클랜드Auckland</option>
+<option value="-6">바그다드[Baghdad]</option>
+<option value="-2">방콕 [Bangkok]</option>
+<option value="-1">베이징[Beijing]</option>
+<option value="-8">베를린[Berlin]</option>
+<option value="-14">보고타</option>
+<option value="1">브리즈번[ Brisbane ]</option>
+<option value="-12">브리즈번[Brisbane]</option>
+<option value="-7">카이로[Cairo]</option>
+<option value="-13">가르가스(Carcas)</option>
+<option value="-9">카사블랑카[Casablanca]</option>
+<option value="-16">시카고[Chicago]</option>
+<option value="-16">덴버[Denver]</option>
+<option value="-3">다카 [Dhaka]</option>
+<option value="-9">더블린[Dublin]</option>
+<option value="-16">에드먼턴[Edmonton]</option>
+<option value="-8">제네바[Geneva]</option>
+<option value="1">괌섬[Guam I.]</option>
+<option value="-7">헬싱키[Helsinki]</option>
+<option value="-2">호치민[Hochiminh]</option>
+<option value="-19">호놀룰루[Honolulu]</option>
+<option value="-1">홍콩 [HongKong]</option>
+<option value="-2">자카르타[Jakarta]</option>
+<option value="-7">예루살렘[Jerusalem]</option>
+<option value="-7">요하네스버그[Johannesbug]</option>
+<option value="-6">카잔[Kazan]</option>
+<option value="-6">쿠웨이트[Kuwait]</option>
+<option value="-17">로스앤젤레스[Los Angeles ].</option>
+<option value="-9">리스본[Lisbon]</option>
+<option value="-9">런던[London]</option>
+<option value="-8">마드리드[Madrid]</option>
+<option value="-1">마닐라[Manila]</option>
+<option value="-5">모리셔스[Mauritius]</option>
+<option value="1">멜버른[Melbourne]</option>
+<option value="-14">몬트리올[Montreal]</option>
+<option value="-15">멕시코시티[Mexico City]</option>
+<option value="-15">마이애미[Miami]</option>
+<option value="-6">모스크바파[Moscow]</option>
+<option value="-6">나이로비[Nairobi]</option>
+<option value="-14">뉴욕[NewYork]</option>
+<option value="-8">파리[Paris]</option>
+<option value="-1">퍼스[Perth]</option>
+<option value="-16">피닉스[Phoenix]</option>
+<option value="-12">리우데자네이루[Rio de Janeiro]</option>
+<option value="-9">로마[Rome]</option>
+<option value="-20">사모아[Samoa]</option>
+<option value="-17">샌프란시스코[San Francisco]</option>
+<option value="-12">상파울로[Sao Paulo]</option>
+<option value="-13">산티아고[Santiago]</option>
+<option value="-17">시애틀[Seattle]</option>
+<option value="2">솔로몬[Solomon]</option>
+<option value="1">시드니[Sydeny]</option>
+<option value="-1">타이베이[Taipei]</option>
+<option value="0">도쿄[Tokyo]</option>
+<option value="-14">토론토[Toronto]</option>
+<option value="-17">밴쿠버[Vancouver]</option>
+<option value="3">웰링턴[Wellington]</option>
+</select>
+
+
+<div class="cityname"><input type="text" name="city_name" value="" readonly class="cnj_time"><div>
+<div class="clockwich"><input type="text" name="city" value="" readonly class="clockcheck"></div>
+</form>
+
+<form  name="ab" class="weather">
+<input type="hidden" name="dosi" id="city" value=""></input>
+<div id="showWeatherForcast"></div>
+<img id="weatherImg"/>
+</form>
+ </div>
+
+<div class="bannername1">City</div>
+ <div id="sub">
+<ul id="main-menu">
+    
+    <li id="city"><img id="mini" src="img\asi.jpg" width="55px;" height="45px;"><br><div id="Aname">아시아</div>
+      <ul id="sub-menu">
+      <div id="citylist"><li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_HKG.gif" width="40" height="25">  홍콩</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_MFM.gif" width="40" height="25">  마카오</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_OSA.gif" width="40" height="25">  오사카</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_OSA.gif" width="40" height="25">  도쿄</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_TPE.gif" width="40" height="25">  타이베이</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_TPE.gif" width="40" height="25">  가오슝</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_BJS.gif" width="40" height="25">  상하이</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_BJS.gif" width="40" height="25">  칭다오</a></li>
+		<div>
+      </ul>
+    </li>
+    <li id="city"><img id="mini" src="img\dong.jpg" width="55px;" height="45px;"><br><div id="Aname">동남아</div>
+      <ul id="sub-menu">
+         <div id="citylist"><li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_SIN.gif" width="40" height="25">  싱가폴</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_BKK.gif" width="40" height="25">  방콕</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_BKK.gif" width="40" height="25">  푸켓</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_CEB.gif" width="40" height="25">  세부</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_CEB.gif" width="40" height="25">  보라카이</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_BKI.gif" width="40" height="25">  코타키나발루</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_LA1.gif" width="40" height="25">  라오스</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_DAD.gif" width="40" height="25">  다낭</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_DAD.gif" width="40" height="25">  호치민</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_DAD.gif" width="40" height="25">  나트랑</a></li>
+		</div>
+      </ul>
+    </li>
+    <li id="city"><img id="mini" src="img\eu.jpg" width="55px;" height="45px;"><br><div id="Aname">유럽</div>
+      <ul id="sub-menu">
+         <div id="citylist"><li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_PAR.gif" width="40" height="25">  파리</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_ROM.gif" width="40" height="25">  로마</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_LON.gif" width="40" height="25">  런던</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_BCN.gif" width="40" height="25">  바르셀로나</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_IST.gif" width="40" height="25">  이스탄불</a></li>
+		<li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_VVO.gif" width="40" height="25">  블라디보스톡</a></li>
+		</div>
+      </ul>
+    </li>
+     <li id="city"><img id="mini" src="img\am.jpg" width="55px;" height="45px;"><br><div id="Aname">미주</div>
+      <ul id="sub-menu">
+         <div id="citylist"><li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_Z01.gif" width="40" height="25">  뉴욕</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag" src="aa\flag_Z01.gif" width="40" height="25">  하와이</a></li>
+		</div>
+      </ul>
+    </li>
+	<li id="city"><img id="mini" src="img\d.jpg" width="55px;" height="45px;"><br><div id="Aname">남태평양</div>
+      <ul id="sub-menu">
+         <div id="citylist"><li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_Z01.gif" width="40" height="25">  괌</a></li>
+        <li id="list2"><a href="#" aria-label="subemnu"><img id="flag"  src="aa\flag_SYD.gif" width="40" height="30">  시드니</a></li>
+		</div>
+      </ul>
+    </li>
+  </ul>
+  </div>
+
+
+  <div class="bannername2">명소</div>
+<div class="banner1">
+<div class="sample_image">
+<p><img id="london" src="img\london.png"></p>
+<p><img id="pic1"src="img\pic1.jpg"></p>
+<p><img id="pic2" src="img\pic2.jpg"></p>
+<p><img id="pic3"src="img\pic3.jpg"></p>
+</div> 
+</div>
+
+<div class="bannername3">맛집</div>
+<div class="banner2">
+<div class="sample_image">
+<a><img id="london" src="img\london.png"></a>
+<a><img id="pic1"src="img\pic1.jpg"></a>
+<a><img id="pic2" src="img\pic2.jpg"></a>
+<a><img id="pic3"src="img\pic3.jpg"></a>
+</div> 
+</div>
+
+
+ </section>
+<footer>
+끝~!!
+</footer>
+ </body>
+</html>

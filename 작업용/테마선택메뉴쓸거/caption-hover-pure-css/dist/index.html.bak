@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Caption Hover Pure CSS</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!--All Images collection in Flickr of TruatStudio. You can find images by follow this link http://www.flickr.com/photos/jimmiijckhanh -->
+<!--<input type="checkbox" id="menu"/>
+<label for="menu"></label>-->
+
+<!-- Menu Responsive-->
+<div class="gallery">  
+<div class="view">
+  <img src="img/banner5.jpg"/>
+  <div class="mask">
+    <h2>가족</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    <a href="#" class="info">Read More</a>
+  </div>
+</div>
+
+<div class="view">
+  <img src="http://farm4.staticflickr.com/3672/9759934733_30459e24b6_c.jpg"/>
+  <div class="mask">
+    <h2>연인</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    <a href="#" class="info">Read More</a>
+  </div>
+</div>
+
+<div class="view">
+  <img src="http://farm4.staticflickr.com/3724/9158174497_63ec00b821_c.jpg"/>
+  <div class="mask">
+    <h2>힐링</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    <a href="#" class="info">Read More</a>
+  </div>
+</div>
+  
+<div class="view">
+  <img src="http://farm3.staticflickr.com/2830/9479528002_33660b24ef_c.jpg"/>
+  <div class="mask">
+    <h2>익사이팅</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    <a href="#" class="info">Read More</a>
+  </div>
+</div>
+ 
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

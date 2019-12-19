@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+<style>
+	#sub{
+list-style:none;
+float:left;}
+#sub a {
+	position: relative;
+	display: inline-block;
+	margin: 15px 25px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+}
+
+#sub a:hover,
+#sub a:focus {
+	outline: none;
+}
+
+.color-6 {
+	background: #f19f0f;
+}
+
+/* 이펙트효과 */
+
+#sub a::after {/*아래에서올라오는효과*/
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: rgba(0,0,0,0.1);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+#sub a:hover::after,
+#sub a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+	</style>
+	</head>
+ <body>
+				<ul id="sub" class="color-6">
+					<li><a href="#">아시아</a></li>
+					<li><a href="#">동남아</a></li>
+					<li><a href="#">Lilt</a></li>
+					<li><a href="#">Mellifluous</a></li>
+					<li><a href="#">Serendipity</a></li>
+				</ul>
+
+
+
+
+<
+    
+ </body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  myWindow=window.open("","smaple","toolbar=yes,menubar=yes,width=200,height=200");
+  myWindow.document.write("새로운 창이 뜨네요");
+  myWindow.document.bgColor="gold";   
+  </script>
+ </head>
+ <body>
+  <input type="button" name="btn1" value="자식창 배경 바꾸기" onClick="myWindow.document.bgColor='red'">
+  <input type="button" name="btn2" value="원래색으로 바꾸기" onClick="myWindow.document.bgColor='gold'">
+  <input type="button" name="btn2" value="이쁜색으로 바꾸기" onClick="myWindow.document.bgColor='pink'">
+ </body>
+</html>
