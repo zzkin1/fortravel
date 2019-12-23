@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userSQL">
+	<resultMap type="xmlEX" id="userResult">
+	<!-- protperty 는 get set 값/ column 은 테이블안에 필드명 -->
+		<result property="id" column="id"/>
+		<result property="pw" column="pw"/>
+		<result property="addr" column="addr"/>
+	</resultMap>
+
+<insert id="insert" parameterType="xmlEX">insert into test values(#{id},#{pw},#{addr});</insert>
+<update id="update" parameterType="xmlEX">update test set pw=#{pw} where id=#{id};</update>
+<delete id="delete" parameterType="xmlEX">delete from test where id=#{id};</delete>
+<select id="select" parameterType="xmlEX" resultType="xmlEX">select * from test;</select>
+<select id="selch"  resultType="String">select id from test where id=#{id};</select>
+</mapper>
