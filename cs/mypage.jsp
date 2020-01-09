@@ -67,7 +67,7 @@
 </div>
 <br><br>
 <hr>
-	<img id="pic_1" src="img/blue.png"><h2>구매한 항공권</h2>
+	<div><img src="img/blue.png"><h2>구매한 항공권</h2></div>
 	<table class="basic">
 
 		<tr><td style="background:#EAEAEA"><b>구매일자</b></td>
@@ -108,7 +108,7 @@
 	 <br><br>
      <hr>
 
-	<img id="pic_2" src="img/board.png"><h2>등록한 게시물</h2>
+	<div><img src="img/board.png"><h2>등록한 게시물</h2></div>
 	<table class="basic2">
 
 		<tr><td width="156"style="background:#EAEAEA"><b>등록일자</b></td>
@@ -139,7 +139,7 @@
 	 
 	 <br><br>
      <hr>
-	 <img id="pic_3" src="img/scrap.png"><h2>나의 스크랩</h2>
+	 <div><img src="img/scrap.png"><h2>나의 스크랩</h2></div>
 
 	    <ul id="sub-menu">
         <li id="list2"><div class="wrapper2">
