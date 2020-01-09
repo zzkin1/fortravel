@@ -12,16 +12,17 @@
             select = "main.jsp";
         }
     %>
-<!DOCTYPE html>
+	<!DOCTYPE html>
 	<html lang="en" >
 	<head>
 	<meta charset="UTF-8">
 	<title>index</title>
-<link rel="stylesheet" href="css/Loginheader.css">
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/Loginheader.js"></script>
-	</head>
-	<body>
+<link rel="stylesheet" href="./css/header.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script  src="js/header.js"></script>
+
+</head>
+<body>
 	<header>
 	<!--메인로고 -->
 	<a href="?pageChange=main.jsp"><div id="logo"><img src="img/logo2.png"></div></a>
@@ -65,14 +66,14 @@
 				<li id="nop"><a href="#">게시글관리</a></li>
 				<li id="nop"><a href="#">스크랩</a></li>
 				<li id="nop"><a href="#">Q&A</a></li>
-			</ul>
-	
+			</ul>		
+	</ul>
 	</div>
 	<div class="usermenu">
-	<p><a href="#">${ID}님</a> <a href="Logout.jsp" style="margin-left:30px;">로그아웃</a></p>
+	<p><a href="?pageChange=login.jsp">로그인</a> <a href="?pageChange=signup.jsp" style="margin-left:30px;">회원가입</a></p>
     </div>
 	</nav>
 	</header>
-<jsp:include page="<%=select%>" flush="false" />
-	 </body>
-</html>
+<jsp:include page="<%=select%>"/>
+	</body>
+	</html>
