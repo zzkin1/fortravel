@@ -14,10 +14,10 @@ conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex","root","12
 if(conn == null)
 	throw new Exception("데이터베이스에 연결할 수 없습니다.<br>");
 stmt=conn.createStatement();
-ResultSet rs=stmt.executeQuery("select * from test where id='"+code+"';");
+ResultSet rs=stmt.executeQuery("select * from userinfo where id='"+code+"';");
 if(rs.next()){
 	String id = rs.getString("id");
-	String pw = rs.getString("pw");
+	String pw = rs.getString("password");
 
 	if(id.equals(code)&&pw.equals(pass)){
 	session.setAttribute("ID",id);

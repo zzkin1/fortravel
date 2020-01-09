@@ -9,6 +9,17 @@
   <link rel="stylesheet" href="css/login.css">
   <!-- js -->
   <script src='https://unpkg.com/ionicons@4.1.2/dist/ionicons.js'></script>
+  <script type="text/javascript">
+//로그인후 뒤로가기막기
+		window.history.forward();
+
+		function noBack() {
+
+			window.history.forward();
+
+		}
+
+         </script>
 
 </head>
 <body>

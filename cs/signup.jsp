@@ -11,6 +11,19 @@
 <!-- partial -->
 <script language="javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js?ver=1"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js?ver=1"></script>
+<script type="text/javascript">
+//회원가입후 뒤로가기막기
+		window.history.forward();
+
+		function noBack() {
+
+			window.history.forward();
+
+		}
+
+         </script>
+
+
 <script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -61,18 +74,87 @@
     }
 	
 </script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript">
+    //중복확인
+     	$(document).ready(function() {
+    		$("#btnid").click(function() {
+    			var getCheckid= RegExp(/^[a-zA-Z0-9]{5,8}$/);
+    			 //아이디 공백 확인
+    		      if($("#userid").val() == ""){
+    		        alert("아이디를 입력하세요");
+    		        $("#userid").focus();
+    		      }
+    		      else{ 
+    		    	  if(!getCheckid.test($("#userid").val())){
+    		          alert("형식에 맞게 ID를 입력해주세요");
+    		          $("#userid").val("");
+    		          $("#userid").focus();
+    		        }
+    		    	  else{
+        		    	  callAjax();
+        		      }
+    		      }
+    		     
+    			    	
+    		      
+    		});
+    	}); 
+    	function callAjax() {
+    		//alert("dd");
+    		$.ajax({
+    			type : "post",
+    			url : "./confirmId.jsp",
+    			data : {
+    				
+    				id : $('#userid').val()
+    				
+    			},
+    			success : whenSuccess,
+    			error : whenError
+    		})
+    	}
+    	function whenSuccess(resdata) {
+    	//alert("dd");
+    	//alert(resdata);
+    	//alert(resdata.includes("dd"))
+    	 	if(resdata==1){
+    		$("#ajaxReturn").html("중복된 ID 입니다");
+    			$("#userid").val("");
+    	        $("#userid").focus();
+    	        }
+    	 	else{
+    	 		$("#ajaxReturn").html("사용하셔도 좋은 ID 입니다")
+    	 		$("#chid").val("");
+    	 	}
+    	
+    		
+    	//	if(resdata.includes("이미 사용중인 아이디입니다."))
+    	//		document.join.hidden.value="0";
+    	//	else
+    	//		document.join.hidden.value="1";
+    	}
+    	function whenError() {
+    		alert("Error");
+    	}
+    	function out() {
+    		
+    		callAjax();
+    		}
+
+    </script>
+ <script type="text/javascript">
+ //중복확인후 id를 재입력시 가입안되게 히든에 있는 value값바꿔서 중복체크다시하게 만들기
+function onkey(){
+	var keycode = event.keyCode;
+	if($("#chid").val()==""){
+		$("#chid").val("un");
+	}
+}
+ </script>
 <script>
-   function idcheck(){
-	  var str=signup.userid.value
-	  if (str=="")
-	  {
-	  alert("Id를 입력하세요")
-	  }
-	  else{
-		location.href="idcheck.jsp?idd="+str		
-	  }
-</script>
-<script>
+
 
 function check() {
       var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
@@ -80,11 +162,12 @@ function check() {
       var getCheck= RegExp(/^[a-zA-Z0-9]{8,12}$/);
       var getName= RegExp(/^[가-힣]+$/);
       var fmt = RegExp(/^\[0-9]{6}$/); //형식 설정
+      var v=document.signup;
  
     //이름 공백 확인
       if($("#username").val() == ""){
         alert("이름을 입력하세요");
-        $("#userid").focus();
+        $("#username").focus();
         return false;
       }
      //이름 유효성
@@ -94,7 +177,8 @@ function check() {
         $("#username").focus();
         return false;
       }
- 
+     
+     
       //아이디 공백 확인
       if($("#userid").val() == ""){
         alert("아이디를 입력하세요");
@@ -102,7 +186,7 @@ function check() {
         return false;
       }
  
-      //이름의 유효성 검사
+      //id 유효성 검사
       if(!getCheckid.test($("#userid").val())){
         alert("형식에 맞게 ID를 입력해주세요");
         $("#userid").val("");
@@ -172,7 +256,13 @@ function check() {
         $("#userbirth").focus();
         return false;
       }
-
+    
+      //ID중복확인 버튼
+      if ($("#chid").val()!="") {
+         alert("ID 중복확인을 해주세요");
+         return false;
+      }
+         
     return true;
   }
 
@@ -196,14 +286,14 @@ overflow-x: hidden;">
     <div class="container__child signup__form">
 
 
-      <form onsubmit="return check()" method="post" action="Insertsigndb.jsp" enctype="text/plain" name="signup">
+      <form  method="post" action="Insertsigndb.jsp" onsubmit="return check()" name="signup">
 	    <div class="form-group">
           <label for="username">Username</label>
-          <input class="form-control" id="username" type="text" name="username" placeholder="이름을 입력하세요" />
+          <input class="form-control" id="username" type="text" name="username" placeholder="이름을 입력하세요"/>
         </div>
 		  <div class="form-group">
-          <label for="username">Userid</label>
-          <input class="form-control" id="userid" type="text" name="userid" placeholder="ID를 5~8자리 영문대소문자와 숫자로 입력하세요" /><input type="button" value="ID중복확인" onclick="idcheck()" id="btnid"/>
+          <label for="username">Userid</label><div id="ajaxReturn" style="width:400px;color:black;font-size:12pt;"></div>
+          <input class="form-control" id="userid" type="text" name="userid" placeholder="ID를 5~8자리 영문대소문자와 숫자로 입력하세요" onkeydown="onkey()" /><input type="hidden" id="chid" value="un"><input type="button" value="ID중복확인" id="btnid"/>
         </div>
          <div class="form-group">
           <label for="password">Password</label>
@@ -245,7 +335,7 @@ overflow-x: hidden;">
 <input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
               <input class="btn btn--form" type="submit" value="확인"/>
             </li>
-            <li><a class="signup__link" id="signup__link" href="login.jsp">아이디가 있으신가요?</a></li>
+            <li><a class="signup__link" id="signup__link" href="?pageChange=login.jsp">아이디가 있으신가요?</a></li>
           </ul>
         </div>
       </form>
