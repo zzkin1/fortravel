@@ -47,7 +47,7 @@ public class BoardDao {
 		try{
 		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
 		stmt=conn.createStatement();
-		String command = "select * from board;";
+		String command = "select * from board order by number desc;";
 		ResultSet rs=stmt.executeQuery(command);
 		while(rs.next()) {
 			
@@ -76,7 +76,7 @@ public class BoardDao {
 		try{
 		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
 		stmt=conn.createStatement();
-		String command = "select * from board where "+opt+" like '%"+sel+"%';";
+		String command = "select * from board where "+opt+" like '%"+sel+"%' order by number desc;";
 		ResultSet rs=stmt.executeQuery(command);
 		while(rs.next()) {
 			
