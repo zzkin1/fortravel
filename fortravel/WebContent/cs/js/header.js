@@ -1,4 +1,4 @@
-	//½ºÅ©·Ñ·Î ¸Þ´ºÀ§Ä¡È®ÀÎ
+	//ï¿½ï¿½Å©ï¿½Ñ·ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½Ä¡È®ï¿½ï¿½
 $(document).ready(function() {
 	var jbOffset = $ ('nav').offset();
 	$(window).scroll(function(){
@@ -11,7 +11,7 @@ $(document).ready(function() {
 				});
 });
 
-//·Î±×ÀÎ Ã¢ ÆË¾÷
+//ï¿½Î±ï¿½ï¿½ï¿½ Ã¢ ï¿½Ë¾ï¿½
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>boardWriteDBinsert</title>
 </head>
 <body>
@@ -18,5 +18,6 @@ String contents=request.getParameter("contents");
 //out.print(number+"<br>"+category+"<br>"+title+"<br>"+writer+"<br>"+hits+"<br>"+contents);
 board.BoardWrite(category,title,writer,contents);
 %>
+
 </body>
 </html>

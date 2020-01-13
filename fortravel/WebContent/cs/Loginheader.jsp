@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<% 
+String se=null;
+se=(String)session.getAttribute("ID");
+if(se==null){
+	out.print("<script>location.href='header.jsp'</script>");
+}
+
+%>
 <%
         String pageChange;
-	    String id= (String)session.getAttribute("ID");
     %>
 		  <%
         String select = request.getParameter("pageChange");
@@ -12,6 +19,7 @@
             select = "main.jsp";
         }
     %>
+    
 <!DOCTYPE html>
 	<html lang="en" >
 	<head>
@@ -19,7 +27,7 @@
 	<title>Loginheader</title>
 <link rel="stylesheet" href="css/Loginheader.css">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/Loginheader.js"></script>
+<script src="js/header.js"></script>
 	</head>
 	<body>
 	<header>

@@ -46,7 +46,7 @@ public class BoardDao {
 		ArrayList<BoardDto> boarderlist=new ArrayList<BoardDto>(); 
 		try{
 		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
-		stmt=conn.createStatement();
+		stmt=conn.createStatement();//게실글 전체출력으로 order by number desc 게시물번호로 내림차순으로 정렬
 		String command = "select * from board order by number desc;";
 		ResultSet rs=stmt.executeQuery(command);
 		while(rs.next()) {
@@ -74,11 +74,52 @@ public class BoardDao {
 		ArrayList<BoardDto> boarderlist=new ArrayList<BoardDto>();
 		
 		try{
-		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
-		stmt=conn.createStatement();
-		String command = "select * from board where "+opt+" like '%"+sel+"%' order by number desc;";
-		ResultSet rs=stmt.executeQuery(command);
-		while(rs.next()) {
+		if(opt.equals("none")) {
+			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
+			stmt=conn.createStatement();//전체 데이터에서(제목,글쓴이,내용) DB검색
+			String command = "select * from board where title like '%"+sel+"%' or writer like "+"'%"+sel+"%' or contents like "+"'%"+sel+"%' order by number desc;";
+			//System.out.print(command);
+			ResultSet rs=stmt.executeQuery(command);
+			while(rs.next()) {
+				
+				BoardDto dto=new BoardDto();
+				dto.setNumber(rs.getInt("number"));
+				dto.setCategory(rs.getString("category"));
+				dto.setTitle(rs.getString("title"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setDate(rs.getTimestamp("date"));
+				dto.setHits(rs.getInt("hits"));
+				
+				boarderlist.add(dto);
+			}
+			}
+		else if(opt.equals("title_contents")) {
+			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
+			stmt=conn.createStatement();//제목+내용으로 DB검색
+			String command = "select * from board where title like '%"+sel+"%' or contents like '%"+sel+"%' order by number desc;";
+			//System.out.print(command);
+			ResultSet rs=stmt.executeQuery(command);
+			while(rs.next()) {
+				
+				BoardDto dto=new BoardDto();
+				dto.setNumber(rs.getInt("number"));
+				dto.setCategory(rs.getString("category"));
+				dto.setTitle(rs.getString("title"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setDate(rs.getTimestamp("date"));
+				dto.setHits(rs.getInt("hits"));
+				
+				boarderlist.add(dto);
+			}
+			}
+		else{
+			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
+			stmt=conn.createStatement();//select옵션과 검색어에따른 DB검색 명령
+			String command = "select * from board where "+opt+" like '%"+sel+"%' order by number desc;";
+			//System.out.print(command);
+			ResultSet rs=stmt.executeQuery(command);
+			
+			while(rs.next()) {
 			
 			BoardDto dto=new BoardDto();
 			dto.setNumber(rs.getInt("number"));
@@ -89,6 +130,7 @@ public class BoardDao {
 			dto.setHits(rs.getInt("hits"));
 			
 			boarderlist.add(dto);
+		}
 		}
 		stmt.close();
 		} catch (Exception e) {
@@ -110,7 +152,7 @@ public class BoardDao {
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/dataex?useSSL=false&useUnicode=true&characterEncoding=utf8","root","123456789a");
 			stmt = conn.createStatement();
 			String command = "update board set hits="+num+" where number="+NO+";";
-			System.out.print(command);
+			//System.out.print(command);
 			int rowNum = stmt.executeUpdate(command);
 			if(rowNum<1)
 			throw new Exception("데이터를 DB에 입력할 수 없습니다."); 
@@ -199,6 +241,8 @@ return boarderView;
 	close();
 	}
 	
+
+	
 	public void BoardDelete(String number) {//게시글 삭제
 		int num=Integer.parseInt(number);
 		try {
@@ -217,8 +261,6 @@ return boarderView;
 		
 	close();
 	}
-
-
 
 }
 

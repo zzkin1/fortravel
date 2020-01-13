@@ -1,22 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<% 
+  String se=null;
+  se=(String)session.getAttribute("ID");
+  if(se!=null){
+	out.print("<script>location.href='Loginheader.jsp'</script>");
+  }
+%>
 <%
-        String pageChange;
-	    String id= (String)session.getAttribute("ID");
-    %>
-		  <%
-        String select = request.getParameter("pageChange");
-		
+  String pageChange;
+%>
+<%
+  String select = request.getParameter("pageChange");		
  
-        if (select == null) {
-            select = "main.jsp";
-        }
-    %>
-	<!DOCTYPE html>
-	<html lang="en" >
-	<head>
-	<meta charset="UTF-8">
-	<title>header</title>
+  if (select == null) {
+     select = "main.jsp";
+  }
+%>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>header</title>
 <link rel="stylesheet" href="./css/header.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script  src="js/header.js"></script>
