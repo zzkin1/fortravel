@@ -14,6 +14,7 @@
 String num=request.getParameter("number");
 //out.print(num);
 board.BoardDelete(num);
+out.print("<script>location.href='Loginheader.jsp?pageChange=board.jsp'</script>");
 %>
 </body>
 </html>

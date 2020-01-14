@@ -17,6 +17,7 @@ String writer=request.getParameter("writer");
 String contents=request.getParameter("contents");
 //out.print(number+"<br>"+category+"<br>"+title+"<br>"+writer+"<br>"+hits+"<br>"+contents);
 board.BoardWrite(category,title,writer,contents);
+out.print("<script>location.href='Loginheader.jsp?pageChange=board.jsp'</script>");
 %>
 
 </body>

@@ -17,6 +17,7 @@ String title=request.getParameter("title");
 String contents=request.getParameter("contents");
 //out.print("<br>"+category+"<br>"+title+"<br>"+"<br>"+contents);
 board.Boardupdate(number,category,title,contents);
+out.print("<script>location.href='Loginheader.jsp?pageChange=board.jsp'</script>");
 %>
 </body>
 </html>
