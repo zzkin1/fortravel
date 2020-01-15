@@ -2,6 +2,7 @@
 <%@ page import="boarder.bean.BoardDto"%>
 <%@ page import="boarder.dao.BoardDao"%>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.sql.Date"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
 String se=null;
@@ -10,6 +11,30 @@ se=(String)session.getAttribute("ID");
 <!doctype html>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
+$(document).ready(function() {//게시글 상세보기를 했을때 세션ID값과 작성자ID가 동일하면 히든버튼 활성화 수정 삭제 가능하게 함
+	var today=new Date();
+	var dd=today.getDate();
+	var mm=today.getMonth()+1;
+	var yyyy=today.getFullYear();
+	if(dd<10){
+		dd='0'+dd
+	}
+	if(mm<10){
+		mm='0'+mm
+	}
+	var today=yyyy+"-"+mm+"-"+dd;
+	
+	$("#today").val(today);
+	
+	var date=$("#date"+i).val();
+	for(var i=0;i<$("#size").val();i++){
+		if(today==date){
+		   $("#check"+i).val($("new");	
+		}
+	}	
+});
+</script>
+<script>
 function writepage(){//session 을 ID가sessionchek인 input hidden박스에 value값으로 넣어주고 값 을 비교하여 로그인과 비로그인 구별하여 글쓰기제한둠
 	var sessioncheck=$("#sessioncheck").val();
 	var check="null";
@@ -17,7 +42,7 @@ function writepage(){//session 을 ID가sessionchek인 input hidden박스에 val
 		alert("로그인이 필요합니다.");
 	} 
 	else{
-		location.href="boardWrite.jsp";
+		location.href="?pageChange=boardWrite.jsp";
 	}
 }
 function search(){//검색어를입력안하면 메시지 출력
@@ -42,7 +67,7 @@ background:yellow;
   <title>board</title>
  </head>
  <body>
-
+<input type=text id="today" value=""/>
 <jsp:useBean id="board" class="boarder.dao.BoardDao"/>
 <table border="solid 1px black ">
 <th width=50 align=center>NO</th><th width=50 align=center>카테고리</th>
@@ -57,6 +82,7 @@ text=(String)request.getParameter("searchinfo");
 //out.print(opt+"   "+text);
 if(text==""||opt==null||text==null){//검색어가 없거나 셀렉트값이 없으면 리스트 전체 순서대로 출력
 ArrayList<BoardDto> list=board.List();
+out.print("<input type=text id=size value="+list.size()+">");
 //out.print(list.size());
  for(int i=0; i<list.size(); i++){
 	out.print("<tr>"+"<td width=100 align=center>"+list.get(i).getNumber()+"</td>");
@@ -65,6 +91,8 @@ ArrayList<BoardDto> list=board.List();
 	out.print("<td width=100 align=center>"+list.get(i).getWriter()+"</td>");
 	out.print("<td width=100 align=center>"+list.get(i).getDate()+"</td>");
 	out.print("<td width=150 align=center>"+list.get(i).getHits()+"</td>"+"<tr>");
+	out.print("<input type='hidden' id='date"+i+"' value='"+list.get(i).getDate()+"'>");
+	out.print("<input type=text id=check"+i+">");
  }
 }
 else{//검색에따른 리스트 출력 

@@ -1,13 +1,13 @@
 package boarder.bean;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class BoardDto {
 	
 	String category,title,writer,contents;
 	
 	int number,hits;
-	Timestamp date;
+	Date date;
 	
 	public String getCategory() {
 		return category;
@@ -39,10 +39,10 @@ public class BoardDto {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	public Timestamp getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(Timestamp date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getContents() {

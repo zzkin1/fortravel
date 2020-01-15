@@ -1,6 +1,5 @@
 package boarder.dao;
 
-import java.security.Timestamp;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -41,6 +40,11 @@ public class BoardDao {
 		}
 			
 	}
+	public  Date Date() {
+	Date today=new Date(0);
+	
+	return today;
+	}
 	public ArrayList<BoardDto> List() {//게시판 순서대로 출력
 		
 		ArrayList<BoardDto> boarderlist=new ArrayList<BoardDto>(); 
@@ -56,7 +60,7 @@ public class BoardDao {
 			dto.setCategory(rs.getString("category"));
 			dto.setTitle(rs.getString("title"));
 			dto.setWriter(rs.getString("writer"));
-			dto.setDate(rs.getTimestamp("date"));
+			dto.setDate(rs.getDate("date"));
 			dto.setHits(rs.getInt("hits"));
 			
 			boarderlist.add(dto);
@@ -87,7 +91,7 @@ public class BoardDao {
 				dto.setCategory(rs.getString("category"));
 				dto.setTitle(rs.getString("title"));
 				dto.setWriter(rs.getString("writer"));
-				dto.setDate(rs.getTimestamp("date"));
+				dto.setDate(rs.getDate("date"));
 				dto.setHits(rs.getInt("hits"));
 				
 				boarderlist.add(dto);
@@ -106,7 +110,7 @@ public class BoardDao {
 				dto.setCategory(rs.getString("category"));
 				dto.setTitle(rs.getString("title"));
 				dto.setWriter(rs.getString("writer"));
-				dto.setDate(rs.getTimestamp("date"));
+				dto.setDate(rs.getDate("date"));
 				dto.setHits(rs.getInt("hits"));
 				
 				boarderlist.add(dto);
@@ -126,7 +130,7 @@ public class BoardDao {
 			dto.setCategory(rs.getString("category"));
 			dto.setTitle(rs.getString("title"));
 			dto.setWriter(rs.getString("writer"));
-			dto.setDate(rs.getTimestamp("date"));
+			dto.setDate(rs.getDate("date"));
 			dto.setHits(rs.getInt("hits"));
 			
 			boarderlist.add(dto);
@@ -183,7 +187,7 @@ public class BoardDao {
 				dto.setCategory(rs.getString("category"));
 				dto.setTitle(rs.getString("title"));
 				dto.setWriter(rs.getString("writer"));
-				dto.setDate(rs.getTimestamp("date"));
+				dto.setDate(rs.getDate("date"));
 				dto.setHits(rs.getInt("hits"));
 				dto.setContents(rs.getString("contents"));
 				
